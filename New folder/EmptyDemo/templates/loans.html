@@ -1,0 +1,79 @@
+{% extends 'layout.html' %}
+{% block body %}
+
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Loans</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/loans.css">
+
+    <style>
+        .highlight{
+	        background-color: yellow;
+	        padding: 5px;
+            margin: 10px;
+
+            }
+        .picspace{
+            padding: 10px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+<div style="left:355px;">{{ todaythedate }}</div>
+
+<table align="center" style = "width:85%">
+	<tr>
+		<td class="mid">Loans</td>
+        <td class="mid">DueDate</td>
+		<td class="mid">Amount Due</td>
+        <td class="mid">Total Amount Payable</td>
+        <td class="mid">Percentage Paid</td>
+        <td><br></td>
+
+
+	</tr>
+    {% for user in userget %}
+
+
+            <tr>
+                <td class="mid"><u><b>{{ user.get_loanName() }}</b></u><br>
+                Loan ID : {{ user.get_loanId() }}<br>
+                Loan Amount : S$ {{user.get_amount()}}<br>
+                Interest Rate : {{ user.get_interestRate() }}%<br>
+                Loan Tenor: {{ user.get_years() }} years<br>
+                Start Date: {{ user.get_startDate() }}
+                </td>
+                <td>{{ user.get_dueDate() }}{# {{ duedate }} #}</td>
+
+                    <td><p>S${{ user.get_payamount() }}</p></td>
+
+
+                <td>S${{ user.get_totalpayable() }}</td>
+
+                {% if user.get_overdate() == 'OverDue' %}
+                    <td><p class="highlight">{{ user.get_overdate() }}</p></td>
+                {% else %}
+                    <td>{{ user.get_overdate() }}<br>Days Left : {{ user.get_daysLeft()}}</td>
+                {% endif %}
+                <td><a href="/update/{{user.get_name()}}${{user.get_totalpayable()}}${{user.get_payamount()}}" class="btn btn-danger">PayNow</a></td>
+            </tr>
+
+
+{% endfor %}
+    </table>
+
+
+
+<p style="position: absolute; left:355px; top:650px; font-size: 35px">Total Amount Due : <u><b><i>${{ getuser }}</i></b></u></p>
+<p style="position: absolute; left:355px; top:700px; font-size: 35px">Total Overdue is ${{ getuser2 }}</p>
+{# <p style="position: absolute; left:355px; top:700px; font-size: 35px">the total paid is ${{ totalPaidAmount }}</p> #}
+
+</body>
+</html>
+
+{% endblock %}

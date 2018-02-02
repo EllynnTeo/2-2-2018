@@ -1,0 +1,27 @@
+table, th, td{
+	border: 3px solid black;
+	border-collapse: collapse;
+	text-align: center;
+	}
+
+button{
+	background-color: #f4441b;
+	border-radius: 8px;
+	border-color: white;
+	color: white;
+	font-size: 20px;
+	cursor: pointer;
+	}
+
+.mid{
+	padding: 0.25cm;
+	}
+
+.highlight{
+	background-color: yellow;
+	padding: 10px 5px 10px 5px;
+}
+
+p{
+	padding: 1cm;
+	}

@@ -1,0 +1,4 @@
+dec,paid,43
+dec,paid,50
+dec,unpaid,70
+dec,overdue,40

@@ -1,0 +1,4 @@
+John,123456789-01,10000,5.88,5,50,POSB Further Study Assist,2018,11,1,2.1,stop
+John,123457689-02,76000,3.3,4,15,Further Study Assist,2018,7,5,3,stop
+Alan,758412905-01,80273,2,1,5,OCBC Cash-On-Loan,2017,9,19,6,stop
+
